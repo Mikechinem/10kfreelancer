@@ -1,26 +1,143 @@
+/* Import Tailwind v4 */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Base body styles */
+body {
+  font-family: system-ui, sans-serif;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Remove underline globally for links and buttons */
+a, button {
+  text-decoration: none;
+}
+/* Links */
+a {
+  color: #ebb608; /* gold */
+  text-decoration: none; /* remove underline */
+  transition: color 0.3s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+a:hover {
+  color: #fff;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  background-color: #ebb608;
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #f1c40f;
+  transform: translateY(-2px);
+}
+
+/* Project cards */
+.project-card {
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Divider */
+.divider {
+  height: 2px;
+  width: 60%;
+  background-color: #444;
+  margin: 3rem auto;
+}
+
+/* Footer links */
+footer a {
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+  .project-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+/* Mobile menu animation helper */
+.mobile-menu {
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px #ebb60855;
+  }
+  50% {
+    box-shadow: 0 0 25px #ebb608aa;
+  }
+  100% {
+    box-shadow: 0 0 10px #ebb60855;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.glow-card {
+  transition: all 0.4s ease;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.glow-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px #ebb608;
+}
+
+/* Chat message entrance animations (add to globals.css) */
+@keyframes slideInFromRight {
+  0% { transform: translateX(12px); opacity: 0; }
+  60% { transform: translateX(-4px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInFromLeft {
+  0% { transform: translateX(-12px); opacity: 0; }
+  60% { transform: translateX(4px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* base msg style (keeps layout consistent) */
+.msg {
+  animation-duration: 360ms;
+  animation-timing-function: cubic-bezier(.2,.9,.2,1);
+  animation-fill-mode: both;
+}
+
+/* user (right) */
+.msg-right {
+  border-top-right-radius: 1.25rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1.25rem;
+  animation-name: slideInFromRight;
+}
+
+/* bot (left) */
+.msg-left {
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1.25rem;
+  animation-name: slideInFromLeft;
 }
