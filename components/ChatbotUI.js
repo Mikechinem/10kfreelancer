@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-
-export default function ChatbotUI() {
+export default function ChatbotUI({onClose}) {
   const [messages, setMessages] = useState([
-    { sender: "bot", text: "👋 Hi there! I'm your AI assistant. How can I help you today?" },
+    { sender: "bot", text: "👋 Hi there! I'm Michael's AI assistant. How can I help you today?"},
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
@@ -93,7 +92,7 @@ export default function ChatbotUI() {
 
     return match
       ? match.text
-      : "🤖 Sorry, this bot doesn't have enough data to give a reasonable answer to this. You can message me on WhatsApp to get an accurate response. Just type whatsapp in the chat box and I'll send you the link.";
+      : "🤖 Sorry, this bot doesn't have enough data to give a reasonable answer to this. You can message me on WhatsApp to get an accurate response. Just type whatsapp in the box and I'll send you the chat link.";
   };
 
   const sendMessage = (text) => {
@@ -120,6 +119,8 @@ export default function ChatbotUI() {
   return (
     <div className="w-full max-w-lg mx-auto">
       <div className="bg-zinc-900 rounded-2xl shadow-lg overflow-hidden flex flex-col">
+          {/* Close button */}
+        
         {/* header */}
         <div className="px-5 py-4 border-b border-zinc-800 flex items-center justify-between">
           <div>

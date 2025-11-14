@@ -3,8 +3,8 @@ export default function Footer() {
     <footer className="w-full bg-black text-white py-6 text-center">
       <p className="mb-2">© 2025 10kFreelancer. All rights reserved.</p>
       <div className="flex justify-center space-x-6">
-        <a href="https://twitter.com" className="hover:text-[var(--color-brand-gold)] no-underline">Twitter</a>
-        <a href="https://github.com" className="hover:text-[var(--color-brand-gold)] no-underline">GitHub</a>
+        <a href="https://x.com/Mike_CHINEM" className="hover:text-[var(--color-brand-gold)] no-underline">Twitter</a>
+        <a href="https://github.com/Mikechinem" className="hover:text-[var(--color-brand-gold)] no-underline">GitHub</a>
         <a href="https://linkedin.com" className="hover:text-[var(--color-brand-gold)] no-underline">LinkedIn</a>
       </div>
     </footer>

@@ -141,3 +141,7 @@ footer a {
   border-bottom-right-radius: 1.25rem;
   animation-name: slideInFromLeft;
 }
+
+html {
+  scroll-behavior: smooth;
+}
