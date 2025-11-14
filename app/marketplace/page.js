@@ -1,4 +1,4 @@
-export default function Marketplace() {
+export default function marketplace() {
   return (
     <div>
       <h1>Marketplace</h1>
