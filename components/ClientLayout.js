@@ -1,7 +1,7 @@
 // ./components/ClientLayout.js
 "use client";
-
 import dynamic from "next/dynamic";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // load chatbot only on client
 const ChatbotWrapper = dynamic(
@@ -10,6 +10,9 @@ const ChatbotWrapper = dynamic(
 );
 
 export default function ClientLayout({ children }) {
+
+  const speedData = SpeedInsights(); // Initialize SpeedInsights
+
   return (
     <>
       {children}
