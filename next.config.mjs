@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+  experimental: {
+    legacyBrowsers: true,
+  },
+
   reactCompiler: true,   // keep your existing option
   output: 'export',      // enables static export for GitHub Pages
   images: {
@@ -8,3 +13,5 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+module.exports = nextConfig;
