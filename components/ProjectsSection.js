@@ -3,6 +3,12 @@ import Link from "next/link";
 
 export default function ProjectsSection() {
   const projects = [
+    
+    
+    { title: "Meta & Google Ads",
+      description: "Your customers are scattered over the internet looking for you, let me show you where they live.",
+    },
+    
     {
       title: "Chatbot AI",
       description: "Interactive AI chatbot built with modern web technologies.",
