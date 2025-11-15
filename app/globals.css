@@ -1,3 +1,10 @@
+/*force old phone display ok*/
+@supports not (display: flex) {
+  body {
+    display: block;
+  }
+}
+
 /* Import Tailwind v4 */
 @import "tailwindcss";
 
