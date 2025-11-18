@@ -53,28 +53,27 @@ export default function Home() {
           </div>
         </section>
 
-    {/* ⭐ One Team Section + Projects aligned in same container */}
-<div className="w-full max-w-5xl mx-auto my-8 flex flex-col items-start">
+        {/* ⭐ One Team + Projects Section - Seamless & aligned */}
+        <div className="w-full max-w-5xl mx-auto flex flex-col items-start">
 
-  {/* One Team Section WITHOUT border/shadow and closer to cards */}
-  <section className="w-full bg-zinc-900 p-4 md:p-6 text-left">
-    <h3 className="text-2xl md:text-3xl font-semibold text-[var(--color-brand-gold)] mb-2">
-      One Team. Full Execution.
-    </h3>
-    <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-0">
-      All the projects in this portfolio were created and managed by a single, 
-      skilled team—so you never need to hire multiple freelancers who waste time 
-      and money. With one expert handling everything, your results stay consistent, 
-      professional, and cost-efficient.
-    </p>
-  </section>
+          {/* One Team Section */}
+          <section className="w-full bg-zinc-900 p-4 md:p-6 text-left">
+            <h3 className="text-2xl md:text-3xl font-semibold text-[var(--color-brand-gold)] mb-2">
+              One Team. Full Execution.
+            </h3>
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-0">
+              All the projects in this portfolio were created and managed by a single, 
+              skilled team—so you never need to hire multiple freelancers who waste time 
+              and money. With one expert handling everything, your results stay consistent, 
+              professional, and cost-efficient.
+            </p>
+          </section>
 
-  {/* Projects Section */}
-  <div className="mt-4 w-full">
-    <ProjectsSection />
-  </div>
-</div>
-
+          {/* Projects Section */}
+          <div className="mt-2 w-full px-4 md:px-6">
+            <ProjectsSection />
+          </div>
+        </div>
 
         {/* Floating Chatbot */}
         <div className="fixed bottom-5 right-5 z-50 w-[90vw] max-w-sm">

@@ -5,7 +5,7 @@ export default function Footer() {
       <div className="flex justify-center space-x-6">
         <a href="https://x.com/Mike_CHINEM" className="hover:text-[var(--color-brand-gold)] no-underline">Twitter</a>
         <a href="https://github.com/Mikechinem" className="hover:text-[var(--color-brand-gold)] no-underline">GitHub</a>
-        <a href="https://linkedin.com" className="hover:text-[var(--color-brand-gold)] no-underline">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mikeehumadu/" className="hover:text-[var(--color-brand-gold)] no-underline">LinkedIn</a>
       </div>
     </footer>
   );
