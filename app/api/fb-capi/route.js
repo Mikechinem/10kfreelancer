@@ -10,11 +10,22 @@ export async function POST(req) {
 
     if (!accessToken || !pixelId) {
       return Response.json(
-        { error: "Missing FB_CONVERSION_API_TOKEN or FB_PIXEL_ID" },
+        { error: "Missing Facebook environment variables" },
         { status: 400 }
       );
     }
 
+    // 1️⃣ Get REAL client IP + User Agent (correct way for Vercel)
+    const forwarded = req.headers.get("x-forwarded-for");
+    const clientIp = forwarded?.split(",")[0] ?? null;
+    const userAgent = req.headers.get("user-agent") ?? null;
+
+    // 2️⃣ Meta DOES NOT accept null fields in user_data, so only include if present
+    const userData = {};
+    if (clientIp) userData.client_ip_address = clientIp;
+    if (userAgent) userData.client_user_agent = userAgent;
+
+    // 3️⃣ Prepare final CAPI payload
     const payload = {
       data: [
         {
@@ -23,15 +34,13 @@ export async function POST(req) {
           action_source: "website",
           event_source_url,
           event_id,
-          user_data: {
-            client_ip_address: req.headers.get("x-forwarded-for"),
-            client_user_agent: req.headers.get("user-agent"),
-          },
-          custom_data: utm_data || null,
+          user_data: userData,
+          custom_data: utm_data || {},
         },
       ],
     };
 
+    // 4️⃣ Send to Meta CAPI
     const metaResponse = await fetch(
       `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${accessToken}`,
       {
@@ -44,7 +53,7 @@ export async function POST(req) {
     const metaResult = await metaResponse.json();
 
     return Response.json({ success: true, fbResult: metaResult });
-  } catch (error) {
-    return Response.json({ error: error.message }, { status: 500 });
+  } catch (err) {
+    return Response.json({ error: err.message }, { status: 500 });
   }
 }
