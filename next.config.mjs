@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    legacyBrowsers: true,
+    // legacyBrowsers: true, //
   },
   reactCompiler: true, // keep your existing option
   output: "export",    // enables static export for GitHub Pages
