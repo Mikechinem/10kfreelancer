@@ -3,6 +3,8 @@ import ChatbotWrapper from "../components/ChatbotWrapper";
 import HeroSection from "../components/HeroSection";
 import ProjectsSection from "../components/ProjectsSection";
 import Footer from "../components/Footer";
+import WhatsAppButton from "../components/WhatsAppButton";
+
 
 export default function Home() {
   return (
@@ -39,19 +41,12 @@ export default function Home() {
               Explore my portfolio below to see live projects, dashboards, AI chatbots, 
               and more. Click any project to discover how I can help you grow your business.
             </p>
-
-            <a
-              href="https://wa.me/7064969603"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#131007] text-zinc-900 font-semibold px-8 py-3 rounded-lg shadow-md
-                         hover:bg-transparent hover:text-[#ebb608] border-2 border-[#ebb608]
-                         transition-colors duration-300 no-underline"
-            >
-              Talk To Me
-            </a>
-          </div>
-        </section>
+          <WhatsAppButton className="inline-block bg-[#131007]
+           text-zinc-900 font-semibold px-8 py-3 rounded-lg shadow-md
+           hover:bg-transparent hover:text-[#ebb608] border-2 border-[#ebb608] 
+           transition-colors duration-300 no-underline"/>
+           </div>
+          </section>
 
         {/* ⭐ One Team + Projects Section - Seamless & aligned */}
         <div className="w-full max-w-5xl mx-auto flex flex-col items-start">
