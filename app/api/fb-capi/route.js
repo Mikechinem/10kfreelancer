@@ -1,6 +1,9 @@
-// app/api/fb-capi/route.js
 
 // Handle POST requests
+
+export const runtime = "nodejs"; // ensures this runs a sever side function //
+
+
 export async function POST(req) {
   try {
     const body = await req.json();
