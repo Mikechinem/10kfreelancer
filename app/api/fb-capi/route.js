@@ -1,44 +1,49 @@
-import fs from "fs";
-import path from "path";
+// app/api/fb-capi/route.js
 
 export async function POST(req) {
-  const body = await req.json();
-  const { event_name, event_source_url, utm_data } = body;
+  try {
+    const body = await req.json();
+    const { event_name, event_source_url, event_id, utm_data } = body;
 
-  // Send event to Meta
-  await fetch(
-    `https://graph.facebook.com/v18.0/321246067225032/events?access_token=${process.env.FB_CONVERSION_API_TOKEN}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        data: [
-          {
-            event_name,
-            event_time: Math.floor(Date.now() / 1000),
-            action_source: "website",
-            event_source_url,
-            user_data: {
-              client_ip_address: req.headers.get("x-forwarded-for"),
-              client_user_agent: req.headers.get("user-agent"),
-            },
-            custom_data: utm_data || null,
-          },
-        ],
-      }),
+    const accessToken = process.env.FB_CONVERSION_API_TOKEN;
+    const pixelId = process.env.FB_PIXEL_ID;
+
+    if (!accessToken || !pixelId) {
+      return Response.json(
+        { error: "Missing FB_CONVERSION_API_TOKEN or FB_PIXEL_ID" },
+        { status: 400 }
+      );
     }
-  );
 
-  // Save event locally for dashboard
-  const filePath = path.join(process.cwd(), "data", "events.json");
-  const existingEvents = JSON.parse(fs.readFileSync(filePath, "utf8"));
-  existingEvents.push({
-    event_name,
-    event_source_url,
-    utm_data,
-    timestamp: new Date().toISOString(),
-  });
-  fs.writeFileSync(filePath, JSON.stringify(existingEvents, null, 2));
+    const payload = {
+      data: [
+        {
+          event_name,
+          event_time: Math.floor(Date.now() / 1000),
+          action_source: "website",
+          event_source_url,
+          event_id, // ← VERY IMPORTANT for dedupe
+          user_data: {
+            client_ip_address: req.headers.get("x-forwarded-for"),
+            client_user_agent: req.headers.get("user-agent"),
+          },
+          custom_data: utm_data || null,
+        },
+      ],
+    };
 
-  return Response.json({ success: true });
+    const metaResponse = await fetch(
+      `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${accessToken}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    const metaResult = await metaResponse.json();
+    return Response.json({ success: true, meta: metaResult });
+  } catch (error) {
+    return Response.json({ error: error.message }, { status: 500 });
+  }
 }
