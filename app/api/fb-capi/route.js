@@ -1,31 +1,35 @@
+// ./app/api/fb-capi/route.js
 export const runtime = "nodejs";
+import crypto from "crypto";
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { event_name, event_source_url, event_id, utm_data } = body;
+    const { event_name, event_source_url, event_id, utm_data, user_email, user_phone } = body;
 
     const accessToken = process.env.FB_CONVERSION_API_TOKEN;
     const pixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
     if (!accessToken || !pixelId) {
       return Response.json(
-        { error: "Missing Facebook environment variables" },
+        { error: "Missing FB_CONVERSION_API_TOKEN or FB_PIXEL_ID" },
         { status: 400 }
       );
     }
 
-    // 1️⃣ Get REAL client IP + User Agent (correct way for Vercel)
-    const forwarded = req.headers.get("x-forwarded-for");
-    const clientIp = forwarded?.split(",")[0] ?? null;
-    const userAgent = req.headers.get("user-agent") ?? null;
+    // Hash email or phone if provided
+    const hashSHA256 = (value) =>
+      crypto.createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
 
-    // 2️⃣ Meta DOES NOT accept null fields in user_data, so only include if present
-    const userData = {};
-    if (clientIp) userData.client_ip_address = clientIp;
-    if (userAgent) userData.client_user_agent = userAgent;
+    const userData = {
+      client_ip_address:
+        body.client_ip || req.headers.get("x-real-ip") || req.headers.get("x-forwarded-for"),
+      client_user_agent: body.client_user_agent || req.headers.get("user-agent"),
+    };
 
-    // 3️⃣ Prepare final CAPI payload
+    if (user_email) userData.em = hashSHA256(user_email);
+    if (user_phone) userData.ph = hashSHA256(user_phone);
+
     const payload = {
       data: [
         {
@@ -33,14 +37,13 @@ export async function POST(req) {
           event_time: Math.floor(Date.now() / 1000),
           action_source: "website",
           event_source_url,
-          event_id,
+          event_id, // important for deduplication
           user_data: userData,
-          custom_data: utm_data || {},
+          custom_data: utm_data || null,
         },
       ],
     };
 
-    // 4️⃣ Send to Meta CAPI
     const metaResponse = await fetch(
       `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${accessToken}`,
       {
@@ -53,7 +56,7 @@ export async function POST(req) {
     const metaResult = await metaResponse.json();
 
     return Response.json({ success: true, fbResult: metaResult });
-  } catch (err) {
-    return Response.json({ error: err.message }, { status: 500 });
+  } catch (error) {
+    return Response.json({ error: error.message }, { status: 500 });
   }
 }
