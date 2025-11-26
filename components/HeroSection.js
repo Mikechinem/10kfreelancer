@@ -1,6 +1,8 @@
 // ./components/HeroSection.js
 "use client";
 
+import WhatsAppButton from "./WhatsAppButton";
+
 export default function HeroSection() {
   return (
     <>
@@ -18,12 +20,16 @@ export default function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* View Projects Button */}
           <a
             href="#projects"
             className="inline-block bg-[#131007] text-zinc-900 font-semibold px-6 py-3 sm:px-8 rounded-lg transition-all duration-300 hover:bg-transparent hover:text-[#b58e10] border-2 border-[#b58e10]"
           >
             View My Projects
           </a>
+
+          {/* WhatsApp Button with tracking */}
+          <WhatsAppButton className="inline-block bg-[#131007] text-zinc-900 font-semibold px-6 py-3 sm:px-8 rounded-lg transition-all duration-300 hover:bg-transparent hover:text-[#b58e10] border-2 border-[#b58e10]" />
         </div>
       </section>
 
@@ -36,7 +42,6 @@ export default function HeroSection() {
           Learn how I help businesses get high-converting websites and ads that actually perform.
         </h5>
 
-        {/* Embedded YouTube Video */}
         <div className="w-full max-w-3xl aspect-video rounded-lg overflow-hidden shadow-lg border-2 border-[#423405]">
           <iframe
             className="w-full h-full"
