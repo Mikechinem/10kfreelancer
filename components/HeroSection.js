@@ -10,11 +10,11 @@ export default function HeroSection() {
         className="w-full flex flex-col items-center justify-center text-center py-16 md:py-20 px-4 md:px-6 bg-black"
       >
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-[#b58e10] leading-tight sm:leading-snug md:leading-snug mb-4 md:mb-6">
-          Spend Less To Get More Leads!
+          Slash Ad Spend; Land Real Buyers!
         </h1>
 
         <p className="text-white text-base sm:text-lg md:text-2xl max-w-xl sm:max-w-2xl mx-auto leading-relaxed sm:leading-relaxed md:leading-loose mb-6 md:mb-8">
-          Get High-Performing Ads + High-converting Websites at Affordable prices.
+          With us, you can create the turnaround if you're ready. ARE YOU READY?
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
