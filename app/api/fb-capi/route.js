@@ -1,21 +1,12 @@
 // app/api/fb-capi/route.js
+
+// Handle POST requests
 export async function POST(req) {
   try {
-    // 1️⃣ Read JSON body
     const body = await req.json();
-    console.log("CAPI Payload received:", body);
-
     const { event_name, event_source_url, event_id, utm_data } = body;
 
-    // 2️⃣ Validate required fields
-    if (!event_name || !event_id) {
-      return new Response(
-        JSON.stringify({ error: "Missing event_name or event_id" }),
-        { status: 400 }
-      );
-    }
-
-    // 3️⃣ Load env variables
+    // Load env variables (must be set in Vercel dashboard for production)
     const accessToken = process.env.FB_CONVERSION_API_TOKEN;
     const pixelId = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
@@ -26,7 +17,13 @@ export async function POST(req) {
       );
     }
 
-    // 4️⃣ Build payload for Facebook
+    if (!event_name || !event_id) {
+      return new Response(
+        JSON.stringify({ error: "Missing event_name or event_id" }),
+        { status: 400 }
+      );
+    }
+
     const payload = {
       data: [
         {
@@ -44,7 +41,6 @@ export async function POST(req) {
       ],
     };
 
-    // 5️⃣ Send to Facebook
     const fbResponse = await fetch(
       `https://graph.facebook.com/v18.0/${pixelId}/events?access_token=${accessToken}`,
       {
@@ -55,12 +51,16 @@ export async function POST(req) {
     );
 
     const fbResult = await fbResponse.json();
-    console.log("FB Response:", fbResult);
+    console.log("FB CAPI Response:", fbResult);
 
-    // 6️⃣ Return success
     return new Response(JSON.stringify({ success: true, fbResult }), { status: 200 });
   } catch (error) {
     console.error("CAPI Route Error:", error);
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });
   }
+}
+
+// Explicitly block GET requests to avoid accidental 405 issues
+export async function GET() {
+  return new Response("Method Not Allowed", { status: 405 });
 }

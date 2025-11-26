@@ -1,4 +1,4 @@
-// ./components/WhatsAppButton.js
+// components/WhatsAppButton.js
 "use client";
 
 import useTrackEvent from "../lib/useTrackEvent";
@@ -9,7 +9,7 @@ export default function WhatsAppButton({ className }) {
   const handleClick = (e) => {
     e.preventDefault();
 
-    // Fire Pixel + CAPI event
+    // Fire both Pixel and CAPI event
     trackEvent({ eventName: "WhatsAppLead" });
 
     // Open WhatsApp after a short delay

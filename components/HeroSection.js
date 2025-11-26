@@ -28,8 +28,6 @@ export default function HeroSection() {
             View My Projects
           </a>
 
-          {/* WhatsApp Button with tracking */}
-          <WhatsAppButton className="inline-block bg-[#131007] text-zinc-900 font-semibold px-6 py-3 sm:px-8 rounded-lg transition-all duration-300 hover:bg-transparent hover:text-[#b58e10] border-2 border-[#b58e10]" />
         </div>
       </section>
 
