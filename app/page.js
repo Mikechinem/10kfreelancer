@@ -4,7 +4,7 @@ import HeroSection from "../components/HeroSection";
 import ProjectsSection from "../components/ProjectsSection";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
-
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,14 +16,22 @@ export default function Home() {
 
         {/* Profile / Picture Section */}
         <section className="w-full max-w-5xl mx-auto my-12 flex flex-col md:flex-row items-center bg-zinc-900 rounded-2xl p-6 shadow-lg">
-          {/* Image */}
           <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6">
-            <img
-              src="/michael.jpg"
-              alt="Michael Ehumadu"
-              className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-[var(--color-brand-gold)] shadow-lg"
-            />
-          </div>
+        <Image
+         src="/michael.jpg"
+         alt="Michael Ehumadu"
+          width={256} // md:w-64 = 16rem = 256px
+         height={256} // md:h-64 = 16rem = 256px
+         className={`
+         w-48 h-48 
+         md:w-64 md:h-64 
+         object-cover 
+         rounded-full 
+         border-2 border-white
+         shadow-lg
+         `}
+       />
+      </div>
 
           {/* Text */}
           <div className="text-left flex-1">
