@@ -46,8 +46,8 @@ export default function Home() {
             </p>
 
             <p className="text-gray-400 mb-6">
-              Explore my portfolio below to see live projects, dashboards, AI chatbots, 
-              and more. Click any project to discover how I can help you grow your business.
+              Explore the various services i offer and message me for your specific need.
+              PS. I only can handle<br />3-5 clients account at a time, I suggest you act now.
             </p>
           <WhatsAppButton className="inline-block bg-[#131007]
            text-zinc-900 font-semibold px-8 py-3 rounded-lg shadow-md
@@ -65,7 +65,7 @@ export default function Home() {
               One Team. Full Execution.
             </h3>
             <p className="text-gray-300 text-base md:text-lg leading-relaxed mb-0">
-              All the projects in this portfolio were created and managed by a single, 
+              All our projects are created and managed by a single, 
               skilled team—so you never need to hire multiple freelancers who waste time 
               and money. With one expert handling everything, your results stay consistent, 
               professional, and cost-efficient.
@@ -83,7 +83,6 @@ export default function Home() {
           <ChatbotWrapper />
         </div>
       </main>
-
       <Footer />
     </div>
   );

@@ -125,10 +125,10 @@ export default function ChatbotUI({onClose}) {
         <div className="px-5 py-4 border-b border-zinc-800 flex items-center justify-between">
           <div>
             <div className="text-lg font-semibold text-[var(--color-brand-gold)]">
-              Chatbot AI Demo
+              Chatbot
             </div>
             <div className="text-xs text-zinc-400">
-              Interactive demo — no external API connected
+              Interactive AI
             </div>
           </div>
         </div>

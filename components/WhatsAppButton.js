@@ -17,7 +17,7 @@ export default function WhatsAppButton({ className }) {
 
   return (
     <a href="https://wa.me/7064969603" onClick={handleClick} className={className}>
-      Talk To Me
+      Get your Free Funnel Audit
     </a>
   );
 }

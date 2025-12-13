@@ -37,7 +37,7 @@ const AnimatedScrollGallery = ({ images }) => {
       className="w-full flex flex-col items-center justify-center text-center py-12 md:py-16 px-4 md:px-6 bg-black border-4 border-[#1a1402] rounded-xl mt-12"
     >
     <h1 className="text-white text-2xl sm:text-3xl md:text-5xl leading-normal max-w-2xl mx-auto mb-12">
-        Been Helping Small Online Brands Get More Real Buyers Since 2021.
+        Been Helping Small business owners run more profitable ads since 2021.
       </h1>
 
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
