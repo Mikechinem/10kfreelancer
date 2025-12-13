@@ -20,7 +20,9 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section className="w-full max-w-5xl mx-auto grid gap-6 md:grid-cols-3 py-8 px-4 md:px-6">
+    <section
+    id="projects"
+    className="w-full max-w-5xl mx-auto grid gap-6 md:grid-cols-3 py-8 px-4 md:px-6">
       {projects.map((project, index) => (
         <Link
           key={index}

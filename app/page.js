@@ -46,8 +46,8 @@ export default function Home() {
             </p>
 
             <p className="text-gray-400 mb-6">
-              Explore the various services i offer and message me for your specific need.
-              PS. I only can handle<br />3-5 clients account at a time, I suggest you act now.
+              Explore the various services i offer and message me for your specific need.<br />
+              PS. I only can handle 3-5 clients account at a time, I suggest you act now.
             </p>
           <WhatsAppButton className="inline-block bg-[#131007]
            text-zinc-900 font-semibold px-8 py-3 rounded-lg shadow-md

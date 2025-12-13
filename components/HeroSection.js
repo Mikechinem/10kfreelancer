@@ -25,8 +25,8 @@ export default function HeroSection() {
   const bulletPoints = [
     "Low cost per lead - every wastage is cutted",
     "Premium buyers and subscribers- no more can you tell me more😂",
-    "Automated Selling process that deosn't need your presence",
-    "Minimum of 2x ROI- the business pay its own expenses"
+    "Automated Selling process that doesn't need your presence",
+    "Minimum of 2x ROI- the business pays its own expenses"
   ];
 
   return (
