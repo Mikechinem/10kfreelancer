@@ -49,7 +49,9 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-[var(--color-brand-gold)] text-x1 font-bold tracking-wide hover:opacity-90"
+        className="text-xs sm:text-sm text-[var(--color-brand-gold)] italic font-bold tracking-wide hover:opacity-90"
+
+
         >
           10X Your Productivity
         </Link>

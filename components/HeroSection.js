@@ -29,6 +29,7 @@ export default function HeroSection() {
     "Minimum of 2x ROI- the business pays its own expenses"
   ];
 
+  
   return (
     <>
       {/* Hero Section */}
@@ -107,6 +108,45 @@ export default function HeroSection() {
           </ul>
         </section>
       </section>
+
+      {/* QUALIFICATION SECTION */}
+<section className="w-full bg-zinc-950 border-t border-[#b58e10]/20 py-20 px-4 md:px-8">
+  <div className="max-w-4xl mx-auto text-center space-y-6">
+
+    <p className="text-3xl sm:text-xl font-bold text-[#b58e10] text-center mb-6">
+      Who This Is For...
+    </p>
+
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+      Built for Serious Business Owners
+    </h2>
+
+    <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+      My ad management and funnel optimization services are designed for
+      business owners who are ready to scale — not experiment blindly.
+    </p>
+
+    <div className="bg-zinc-900 rounded-2xl p-8 mt-8 space-y-6 text-center">
+  <p className="text-white text-lg font-semibold">
+    This service is a good fit if:
+  </p>
+
+  <ul className="text-gray-300 space-y-3 list-disc list-inside inline-block text-left">
+    <li>You can comfortably invest <span className="text-[#b58e10] font-semibold">₦100,000+</span> per month in ads</li>
+    <li>You already sell a validated product or service</li>
+    <li>You want predictable, trackable customer acquisition</li>
+    <li>You value data, testing, and long-term growth</li>
+  </ul>
+</div>
+
+
+    <p className="text-gray-400 text-sm italic">
+      Not sure if you’re a fit? Let’s talk and find out.
+    </p>
+
+  </div>
+</section>
+
 
       {/* Testimonial / Image Gallery */}
       <AnimatedScrollGallery images={galleryImages} />
