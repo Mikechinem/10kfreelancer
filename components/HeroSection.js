@@ -113,7 +113,7 @@ export default function HeroSection() {
 <section className="w-full bg-zinc-950 border-t border-[#b58e10]/20 py-20 px-4 md:px-8">
   <div className="max-w-4xl mx-auto text-center space-y-6">
 
-    <p className="text-3xl sm:text-xl font-bold text-[#b58e10] text-center mb-6">
+    <p className="text-xl sm:text-x1 font-bold text-[#b58e10] text-center mb-6">
       Who This Is For...
     </p>
 
