@@ -1,7 +1,7 @@
 // ./components/HeroSection.js
 "use client";
 
-import AnimatedScrollGallery from '../components/AnimatedScrollGallery';
+import AnimatedScrollGallery from "@/components/AnimatedScrollGallery";
 import HeroImage from "@/components/HeroImage";
 import HeroVideoSection from "@/components/HeroVideo";
 import { motion } from "framer-motion";
@@ -35,11 +35,9 @@ export default function HeroSection() {
       {/* HERO SECTION */}
       <section
         id="hero"
-        className="w-full min-h-screen flex flex-col justify-center bg-black px-4 md:px-8 lg:px-16 py-16 md:py-20"
+        className="w-full min-h-screen flex flex-col justify-center bg-black px-4 sm:px-6 md:px-8 lg:px-16 py-16 md:py-20"
       >
-        {/* Main Hero Grid */}
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6 items-center relative">
-
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-8 items-center">
           {/* Left Column: Text */}
           <div className="flex flex-col justify-center space-y-6 z-10">
             <div className="text-[#b58e10] text-sm font-semibold uppercase tracking-wider">
@@ -60,8 +58,8 @@ export default function HeroSection() {
 
             {/* Button */}
             <div className="flex justify-center pt-6">
-              <a 
-                href="#projects" 
+              <a
+                href="#projects"
                 className="inline-block bg-[#141413] text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-transparent hover:text-[#b58e10] border-2 border-[#b58e10] text-center text-lg"
               >
                 Get Your Free Funnel Audit
@@ -70,16 +68,20 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column: Hero Image */}
-          <div className="flex items-center justify-center lg:justify-end -ml-8 lg:-ml-16 relative z-0">
+          <div className="flex items-center justify-center lg:justify-end relative z-0">
             <HeroImage className="w-full max-w-full lg:max-w-[110%]" />
           </div>
         </div>
       </section>
 
       {/* VIDEO SECTION */}
-      <HeroVideoSection />
+      <section className="w-full flex justify-center py-12 px-4 md:px-8 lg:px-16">
+        <div className="max-w-4xl w-full border border-[#b58e10]/30 rounded-xl p-4">
+        <HeroVideoSection />
+        </div>
+      </section>
 
-      {/* Animated Feature Cards */}
+      {/* FEATURE CARDS SECTION */}
       <section className="mt-12 max-w-7xl mx-auto px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <h2 className="col-span-full text-3xl sm:text-4xl font-bold text-white text-center mb-4">
           My Approach
@@ -100,54 +102,55 @@ export default function HeroSection() {
         ))}
       </section>
 
-      {/* Bullet Points Section */}
-      <section className="mt-12 max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-6">
-          What You'll Get
-        </h2>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-gray-300 list-disc list-inside">
-          {bulletPoints.map((point, idx) => (
-            <li key={idx}>{point}</li>
-          ))}
-        </ul>
-      </section>
+      {/* BULLET POINTS SECTION */}
+<section className="mt-12 md:mt-16 lg:mt-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+  <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-8">
+    What You'll Get
+  </h2>
+  <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-gray-300 list-disc list-inside">
+    {bulletPoints.map((point, idx) => (
+      <li key={idx}>{point}</li>
+    ))}
+  </ul>
+</section>
 
-      {/* QUALIFICATION SECTION */}
-      <section className="w-full bg-zinc-950 border-t border-[#b58e10]/20 py-20 px-4 md:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <p className="text-xl sm:text-x1 font-bold text-[#b58e10] mb-6">
-            Who This Is For...
-          </p>
+{/* QUALIFICATION SECTION */}
+<section className="w-full bg-zinc-950 border-t border-[#b58e10]/20 mt-12 md:mt-16 lg:mt-20 py-20 md:py-24 px-4 sm:px-6 md:px-8">
+  <div className="max-w-4xl mx-auto text-center space-y-8">
+    <p className="text-xl sm:text-2xl font-bold text-[#b58e10] mb-4">
+      Who This Is For...
+    </p>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Built for Serious Business Owners
-          </h2>
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+      Built for Serious Business Owners
+    </h2>
 
-          <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-            My ad management and funnel optimization services are designed for
-            business owners who are ready to scale — not experiment blindly.
-          </p>
+    <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+      My ad management and funnel optimization services are designed for
+      business owners who are ready to scale — not experiment blindly.
+    </p>
 
-          <div className="bg-zinc-900 rounded-2xl p-8 mt-8 space-y-6 text-center">
-            <p className="text-white text-lg font-semibold">
-              This service is a good fit if:
-            </p>
+    <div className="bg-zinc-900 rounded-2xl p-8 mt-8 space-y-6 text-center">
+      <p className="text-white text-lg font-semibold">
+        This service is a good fit if:
+      </p>
 
-            <ul className="text-gray-300 space-y-3 list-disc list-inside inline-block text-left">
-              <li>You can comfortably invest <span className="text-[#b58e10] font-semibold">₦100,000+</span> per month in ads</li>
-              <li>You already sell a validated product or service</li>
-              <li>You want predictable, trackable customer acquisition</li>
-              <li>You value data, testing, and long-term growth</li>
-            </ul>
-          </div>
+      <ul className="text-gray-300 space-y-3 list-disc list-inside inline-block text-left">
+        <li>You can comfortably invest <span className="text-[#b58e10] font-semibold">₦100,000+</span> per month in ads</li>
+        <li>You already sell a validated product or service</li>
+        <li>You want predictable, trackable customer acquisition</li>
+        <li>You value data, testing, and long-term growth</li>
+      </ul>
+    </div>
 
-          <p className="text-gray-400 text-sm italic">
-            Not sure if you’re a fit? Let’s talk and find out.
-          </p>
-        </div>
-      </section>
+    <p className="text-gray-400 text-sm italic">
+      Not sure if you’re a fit? Let’s talk and find out.
+    </p>
+  </div>
+</section>
 
-      {/* Testimonial / Image Gallery */}
+
+      {/* TESTIMONIAL / IMAGE GALLERY */}
       <AnimatedScrollGallery images={galleryImages} />
     </>
   );
