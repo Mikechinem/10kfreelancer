@@ -3,6 +3,7 @@
 
 import AnimatedScrollGallery from '../components/AnimatedScrollGallery';
 import HeroImage from "@/components/HeroImage";
+import HeroVideoSection from "@/components/HeroVideo";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
@@ -24,20 +25,19 @@ export default function HeroSection() {
 
   const bulletPoints = [
     "Low cost per lead - every wastage is cutted",
-    "Premium buyers and subscribers- no more can you tell me more😂",
+    "Premium buyers and subscribers - no more 'can you tell me more?' 😂",
     "Automated Selling process that doesn't need your presence",
-    "Minimum of 2x ROI- the business pays its own expenses"
+    "Minimum of 2x ROI - the business pays its own expenses"
   ];
 
-  
   return (
     <>
-      {/* Hero Section */}
+      {/* HERO SECTION */}
       <section
         id="hero"
         className="w-full min-h-screen flex flex-col justify-center bg-black px-4 md:px-8 lg:px-16 py-16 md:py-20"
       >
-        {/* Main hero grid */}
+        {/* Main Hero Grid */}
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6 items-center relative">
 
           {/* Left Column: Text */}
@@ -58,7 +58,7 @@ export default function HeroSection() {
               Trusted by course creators, coaches, e-commerce brands and SaaS companies
             </div>
 
-            {/* Button centered under text */}
+            {/* Button */}
             <div className="flex justify-center pt-6">
               <a 
                 href="#projects" 
@@ -74,79 +74,78 @@ export default function HeroSection() {
             <HeroImage className="w-full max-w-full lg:max-w-[110%]" />
           </div>
         </div>
+      </section>
 
-        {/* Animated Feature Cards Section */}
-        <div className="mt-12 max-w-7xl mx-auto px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <h2 className="col-span-full text-3xl sm:text-4xl font-bold text-white text-center mb-4">
-            My Approach
-          </h2>
+      {/* VIDEO SECTION */}
+      <HeroVideoSection />
 
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              className="flex items-start space-x-3 bg-zinc-900 rounded-xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              <span className="text-[#b58e10] mt-1 text-xl">✔</span>
-              <p className="text-gray-300">{feature}</p>
-            </motion.div>
+      {/* Animated Feature Cards */}
+      <section className="mt-12 max-w-7xl mx-auto px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <h2 className="col-span-full text-3xl sm:text-4xl font-bold text-white text-center mb-4">
+          My Approach
+        </h2>
+
+        {features.map((feature, index) => (
+          <motion.div
+            key={index}
+            className="flex items-start space-x-3 bg-zinc-900 rounded-xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <span className="text-[#b58e10] mt-1 text-xl">✔</span>
+            <p className="text-gray-300">{feature}</p>
+          </motion.div>
+        ))}
+      </section>
+
+      {/* Bullet Points Section */}
+      <section className="mt-12 max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-6">
+          What You'll Get
+        </h2>
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-gray-300 list-disc list-inside">
+          {bulletPoints.map((point, idx) => (
+            <li key={idx}>{point}</li>
           ))}
-        </div>
-
-        {/* Bullet Point Section aligned with Feature Cards */}
-        <section className="mt-12 max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-6">
-            What You'll Get
-          </h2>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-gray-300 list-disc list-inside">
-            {bulletPoints.map((point, idx) => (
-              <li key={idx}>{point}</li>
-            ))}
-          </ul>
-        </section>
+        </ul>
       </section>
 
       {/* QUALIFICATION SECTION */}
-<section className="w-full bg-zinc-950 border-t border-[#b58e10]/20 py-20 px-4 md:px-8">
-  <div className="max-w-4xl mx-auto text-center space-y-6">
+      <section className="w-full bg-zinc-950 border-t border-[#b58e10]/20 py-20 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <p className="text-xl sm:text-x1 font-bold text-[#b58e10] mb-6">
+            Who This Is For...
+          </p>
 
-    <p className="text-xl sm:text-x1 font-bold text-[#b58e10] text-center mb-6">
-      Who This Is For...
-    </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
+            Built for Serious Business Owners
+          </h2>
 
-    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-      Built for Serious Business Owners
-    </h2>
+          <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+            My ad management and funnel optimization services are designed for
+            business owners who are ready to scale — not experiment blindly.
+          </p>
 
-    <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-      My ad management and funnel optimization services are designed for
-      business owners who are ready to scale — not experiment blindly.
-    </p>
+          <div className="bg-zinc-900 rounded-2xl p-8 mt-8 space-y-6 text-center">
+            <p className="text-white text-lg font-semibold">
+              This service is a good fit if:
+            </p>
 
-    <div className="bg-zinc-900 rounded-2xl p-8 mt-8 space-y-6 text-center">
-  <p className="text-white text-lg font-semibold">
-    This service is a good fit if:
-  </p>
+            <ul className="text-gray-300 space-y-3 list-disc list-inside inline-block text-left">
+              <li>You can comfortably invest <span className="text-[#b58e10] font-semibold">₦100,000+</span> per month in ads</li>
+              <li>You already sell a validated product or service</li>
+              <li>You want predictable, trackable customer acquisition</li>
+              <li>You value data, testing, and long-term growth</li>
+            </ul>
+          </div>
 
-  <ul className="text-gray-300 space-y-3 list-disc list-inside inline-block text-left">
-    <li>You can comfortably invest <span className="text-[#b58e10] font-semibold">₦100,000+</span> per month in ads</li>
-    <li>You already sell a validated product or service</li>
-    <li>You want predictable, trackable customer acquisition</li>
-    <li>You value data, testing, and long-term growth</li>
-  </ul>
-</div>
-
-
-    <p className="text-gray-400 text-sm italic">
-      Not sure if you’re a fit? Let’s talk and find out.
-    </p>
-
-  </div>
-</section>
-
+          <p className="text-gray-400 text-sm italic">
+            Not sure if you’re a fit? Let’s talk and find out.
+          </p>
+        </div>
+      </section>
 
       {/* Testimonial / Image Gallery */}
       <AnimatedScrollGallery images={galleryImages} />
