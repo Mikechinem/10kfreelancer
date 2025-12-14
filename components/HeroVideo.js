@@ -7,9 +7,11 @@ export default function HeroVideo() {
   return (
     <section className="w-full flex flex-col items-center py-16 px-4 md:px-8 lg:px-16 bg-black border-t border-b border-[#b58e10]/30">
       <div className="max-w-4xl w-full flex flex-col items-center space-y-6">
-        <h2 className="text-xl sm:text-2xl font-bold text-[#b58e10] text-center">
-          Watch this 5 minute demo on how I would quickly increase your CLTR and cut ad spend
-        </h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-white text-center">
+      How I'd <span className="text-[#b58e10]">INSTANTLY cut ad waste</span> and <span className="text-[#b58e10]">INCREASE Your ROI</span> without touching ad spend!<br />
+      <span className="text-[#b58e10]">WATCH THE 4 MINUTE VIDEO DEMO</span>
+     </h2>
+
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
