@@ -41,7 +41,7 @@ export default function ContactPage() {
             <FaTwitter />
           </a>
           <a
-            href="https://linkedin.com/in/yourhandle"
+            href="https://www.linkedin.com/in/mikeehumadu/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--color-brand-gold)] hover:text-yellow-400 text-3xl"
@@ -57,7 +57,7 @@ export default function ContactPage() {
             <FaGithub />
           </a>
           <a
-            href="https://wa.me/7064969603"
+            href="https://wa.me/+2347064969603"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--color-brand-gold)] hover:text-yellow-400 text-3xl"
