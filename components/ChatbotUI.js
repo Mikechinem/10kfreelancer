@@ -38,7 +38,7 @@ export default function ChatbotUI({onClose}) {
         <>
           You can reach me directly on WhatsApp:{" "}
           <a
-            href="https://wa.me/7064969603"
+            href="https://wa.me/+2347064969603"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--color-brand-gold)] underline"
