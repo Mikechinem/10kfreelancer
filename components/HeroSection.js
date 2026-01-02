@@ -45,7 +45,7 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight">
-              Stop Wasting Money on Ads That Don't Convert
+              Stop Wasting Money On ads That Don't Convert!
             </h1>
 
             <p className="text-gray-300 text-lg sm:text-xl lg:text-2xl leading-relaxed">

@@ -31,7 +31,7 @@ export default function TikTokAdsPage() {
           </p>
 
           <a
-            href="https://wa.me/2347064969603"
+            href="https://wa.me/+2347064969603"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#131007] text-zinc-900 font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-transparent hover:text-[#ebb608] border-2 border-[#ebb608] transition-colors duration-300 no-underline"
