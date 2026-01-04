@@ -53,7 +53,7 @@ export default function Navbar() {
 
 
         >
-          10X Your Productivity
+          10X Your Sales
         </Link>
 
         {/* Desktop Menu */}

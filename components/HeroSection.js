@@ -24,7 +24,7 @@ export default function HeroSection() {
   ];
 
   const bulletPoints = [
-    "Low cost per lead - every wastage is cutted",
+    "Landing page that forces them to click the right button - No wasted words or random design",
     "Premium buyers and subscribers - no more 'can you tell me more?' 😂",
     "Automated Selling process that doesn't need your presence",
     "Minimum of 2x ROI - the business pays its own expenses"
@@ -49,11 +49,11 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-gray-300 text-lg sm:text-xl lg:text-2xl leading-relaxed">
-              I help online businesses reduce their cost per customer acquisition by 30-40% through data-driven Meta and Google ads plus custom landing pages.
+              I help online businesses reduce their cost per customer acquisition by 30-40% through data-driven Meta and PPC ads plus custom landing pages.
             </p>
 
             <div className="text-gray-400 text-sm italic">
-              Trusted by course creators, coaches, e-commerce brands and SaaS companies
+              Trusted by course creators, coaches and e-commerce brands.
             </div>
 
             {/* Button */}
