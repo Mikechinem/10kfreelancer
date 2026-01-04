@@ -45,11 +45,12 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight">
-              Stop Wasting Money On ads That Don't Convert!
+              Stop Chasing Clients on Social Media. Get Booked Out Fast.
             </h1>
 
             <p className="text-gray-300 text-lg sm:text-xl lg:text-2xl leading-relaxed">
-              I help online businesses reduce their cost per customer acquisition by 30-40% through data-driven Meta and PPC ads plus custom landing pages.
+              "I help coaches get high-quality leads using landing pages and Facebook ads — 
+              so you can focus on coaching, not marketing.
             </p>
 
             <div className="text-gray-400 text-sm italic">

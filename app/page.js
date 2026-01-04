@@ -52,7 +52,7 @@ export default function Home() {
               </span>
               
               <span className="block mt-6">
-                72 hours later? 1,324 leads. <strong>No cold calling or relating. No rejection. Just results.</strong>
+                48 hours later? 1,324 leads. <strong>No cold calling or relating. No rejection. Just results.</strong>
               </span>
               
               <span className="block mt-6">
