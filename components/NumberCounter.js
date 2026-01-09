@@ -67,7 +67,7 @@ export default function StatsSection() {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl w-full">
-        <NumberCounter end={54000} duration={3500} label="Leads Generated" />
+        <NumberCounter end={54000} duration={3500} label="Leads Generated" suffix="+" />
         <NumberCounter end={43} duration={2000} label="Clients Helped" suffix="+" />
         <NumberCounter end={72} duration={1500} label="Hours to First Results" />
       </div>

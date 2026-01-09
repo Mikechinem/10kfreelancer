@@ -4,10 +4,11 @@ export async function POST(req) {
     const { name, email, whatsapp } = body;
 
     if (!email) {
-      return new Response(
-        JSON.stringify({ error: "Email is required" }),
-        { status: 400 }
-      );
+      return new Response(JSON.stringify({ error: "Email is required" }), { status: 400 });
+    }
+
+    if (!whatsapp) {
+      return new Response(JSON.stringify({ error: "WhatsApp number is required" }), { status: 400 });
     }
 
     const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
@@ -18,10 +19,7 @@ export async function POST(req) {
       },
       body: JSON.stringify({
         email,
-        fields: {
-          name,
-          whatsapp,
-        },
+        fields: { name, whatsapp },
         groups: [process.env.MAILERLITE_GROUP_ID],
         status: "active",
       }),
@@ -29,18 +27,12 @@ export async function POST(req) {
 
     if (!response.ok) {
       const error = await response.text();
-      return new Response(error, { status: 400 });
+      return new Response(JSON.stringify({ error }), { status: 400 });
     }
 
-    return new Response(
-      JSON.stringify({ success: true }),
-      { status: 200 }
-    );
+    return new Response(JSON.stringify({ success: true }), { status: 200 });
 
   } catch (error) {
-    return new Response(
-      JSON.stringify({ error: "Something went wrong" }),
-      { status: 500 }
-    );
+    return new Response(JSON.stringify({ error: "Something went wrong" }), { status: 500 });
   }
 }
