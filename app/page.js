@@ -75,7 +75,7 @@ export default function Home() {
               </span>
             </p>
             <p className="text-gray-400 mb-6 mt-12">
-              PS. I only can handle 3-5 clients account at a time, I suggest you act now.
+              PS. I only can handle 2-3 clients account at a time, I suggest you act now.
             </p>
 
             <WhatsAppButton className="inline-block bg-[#131007] text-zinc-900 font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-transparent hover:text-[#ebb608] border-2 border-[#ebb608] transition-colors duration-300 no-underline"/>
