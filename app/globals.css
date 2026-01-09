@@ -152,3 +152,33 @@ footer a {
 html {
   scroll-behavior: smooth;
 }
+
+
+
+/* Override react-phone-input-2 styles */
+.react-tel-input .form-control {
+  width: 100% !important;
+  padding: 1rem !important;
+  border-radius: 0.75rem !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+  border: 1px solid rgb(63, 63, 70) !important; /* zinc-700 */
+  transition: all 0.3s !important;
+}
+
+.react-tel-input .form-control:focus {
+  outline: none !important;
+  ring: 2px !important;
+  ring-color: #e8a32d !important;
+  border-color: #e8a32d !important;
+}
+
+.react-tel-input .form-control::placeholder {
+  color: rgb(156, 163, 175) !important; /* gray-400 */
+}
+
+.react-tel-input .flag-dropdown {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgb(63, 63, 70) !important;
+  border-radius: 0.75rem 0 0 0.75rem !important;
+}
