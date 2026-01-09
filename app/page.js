@@ -87,12 +87,15 @@ export default function Home() {
           <NumberCounter />
         </section>
 
-        {/* CTA Form Section */}
-        <CTAForm
-          headline="Ready to Stop Living From Launch to Launch?"
-          subheadline="Drop your info below and let's talk — I only take 3-5 clients at a time."
+       {/* CTA Form Section */}
+           <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 my-20">
+          <CTAForm
+          headline="Ready to Stop Keep Begging For Attention?"
+          subheadline="Drop your info below and let's talk — I only take 2–3 clients at a time."
           buttonText="Let's Fix This"
-        />
+           />
+         </section>
+
 
         {/* One Team + Projects Section */}
         <div className="w-full max-w-5xl mx-auto flex flex-col items-start mt-16">
