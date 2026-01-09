@@ -1,5 +1,6 @@
-import Link from "next/link";
 
+ 
+import Link from "next/link";
 export default function ThankYouPage() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-zinc-900 to-black px-6">
