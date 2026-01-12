@@ -138,7 +138,7 @@ export default function SalesPage() {
             {/* Bottom CTA Button */}
             <div className="mt-10">
               <CTAButton
-                text="Book Your Free Session Now"
+                text="Book Your Free Session"
                 onClick={openModal}
               />
             </div>
