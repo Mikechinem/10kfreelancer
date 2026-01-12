@@ -12,8 +12,8 @@ export default function ThankYouPage() {
 
         <p className="text-gray-300 text-lg md:text-xl mb-8">
           Thanks for reaching out.< br/> 
-          Would you want us to knock it off now? < br/>
-          Message me on Whatsapp let’s talk.
+          We can knock it off now if you want< br/>
+          Message me on Whatsapp if this works for you.
         </p>
 
         {/* WhatsApp Button */}

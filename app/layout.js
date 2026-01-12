@@ -1,6 +1,5 @@
 // ./app/layout.js
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import ClientLayout from "@/components/ClientLayout";
 
 export const metadata = {
@@ -41,8 +40,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className="bg-black text-white">
-        <Navbar />
-        <ClientLayout>
+     <ClientLayout>
           {children}
         </ClientLayout>
 
