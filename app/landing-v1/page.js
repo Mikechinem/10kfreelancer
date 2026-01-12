@@ -82,7 +82,7 @@ export default function SalesPage() {
             {/* Top CTA Button */}
             <div className="mt-10">
               <CTAButton
-                text="Lock in my spot now!"
+                text="Lock-in my Spot Now!"
                 onClick={openModal}
               />
             </div>
@@ -138,7 +138,7 @@ export default function SalesPage() {
             {/* Bottom CTA Button */}
             <div className="mt-10">
               <CTAButton
-                text="Book Your Free Call Now"
+                text="Book Your Free Session Now"
                 onClick={openModal}
               />
             </div>
