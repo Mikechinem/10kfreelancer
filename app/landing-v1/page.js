@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import HeadlineSection from "@/components/HeadlineSection";
@@ -8,53 +8,102 @@ import CTAButton from "@/components/CTAButton";
 import PopupModal from "@/components/PopupModal";
 import CTAForm from "@/components/CTAForm";
 
-/* =========================
-   TESTIMONIAL IMAGES
-========================= */
+// =========================
+// TESTIMONIAL IMAGES (Optimized)
+// =========================
 const testimonialImages = [
-  "fb_ad_success2_testimonial_kyuyad.jpg",
-  "fb_ad_sucess8_jsn58h.jpg",
-  "fb_ad_success_5_zvxqw2.jpg",
-  "fb_ad_success7_f5xsnc.jpg",
-  "fb_ad_success3_zg6p7p.jpg",
+  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580057/fb_ad_success2_testimonial_kyuyad.jpg",
+  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_sucess8_jsn58h.jpg",
+  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580057/fb_ad_success_5_zvxqw2.jpg",
+  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_success7_f5xsnc.jpg",
+  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_success3_zg6p7p.jpg",
 ];
 
-const cloudinaryBase = "https://res.cloudinary.com/dojweqe65/image/upload";
+// =========================
+// TESTIMONIAL COLUMN COMPONENT
+// =========================
+function TestimonialColumn() {
+  const [visible, setVisible] = useState(
+    new Array(testimonialImages.length).fill(false)
+  );
 
-// Function to dynamically serve smaller images for mobile
-function optimizeImage(img, width = 900) {
-  return `${cloudinaryBase}/f_auto,q_50,w_${width}/v1768160617/${img}`;
+  // Intersection Observer for lazy-loading images
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisible((prev) => {
+              const newState = [...prev];
+              newState[index] = true;
+              return newState;
+            });
+          }
+        });
+      },
+      { root: null, rootMargin: "0px", threshold: 0.1 }
+    );
+
+    const imgs = document.querySelectorAll("div[data-index]");
+    imgs.forEach((img) => observer.observe(img));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="w-full py-16 px-4 bg-black/40 border border-white/10 rounded-3xl mt-16 backdrop-blur-sm">
+      <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10">
+        Feedback from people who took me up on my advice
+      </h2>
+
+      <div className="max-w-4xl mx-auto space-y-8">
+        {testimonialImages.map((img, index) => (
+          <div
+            key={index}
+            data-index={index}
+            className="bg-black/70 border border-white/10 rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105"
+          >
+            {visible[index] ? (
+              <img
+                src={img}
+                alt={`Testimonial ${index + 1}`}
+                className="w-full h-auto object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <div className="w-full h-48 bg-gray-800 animate-pulse" />
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
+// =========================
+// MAIN SALES PAGE
+// =========================
 export default function SalesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(2);
-  const [windowWidth, setWindowWidth] = useState(1200);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // Track window width for responsive image optimization
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Calculate optimal width
-  const getImageWidth = () => {
-    if (windowWidth < 640) return 600; // mobile
-    if (windowWidth < 1024) return 900; // tablet
-    return 1200; // desktop
-  };
-
   return (
     <main className="relative bg-black min-h-screen overflow-x-hidden font-sans">
+
+      {/* Background grid */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(232,163,45,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(232,163,45,0.01)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      </div>
 
       {/* Top Section */}
       <section className="relative z-10 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
+
+          {/* Image */}
           <div className="flex justify-center">
             <img
               src="https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_80,w_1000/v1768157371/BOOK_a_15_Minutes_7_aygkbf.png"
@@ -66,7 +115,7 @@ export default function SalesPage() {
           {/* Video */}
           <div className="mt-10">
             <div className="max-w-4xl mx-auto">
-              <div className="relative rounded-3xl overflow-hidden border border-gradient-to-r from-[#e8a32d]/30 via-green-500/20 to-[#e8a32d]/30 shadow-2xl backdrop-blur-md">
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 <div className="relative aspect-video bg-black">
                   <video
                     controls
@@ -83,7 +132,7 @@ export default function SalesPage() {
             </div>
           </div>
 
-          {/* Headline */}
+          {/* Top CTA Section */}
           <div className="text-center mt-14">
             <HeadlineSection
               preHeadline="For Coaches and Education based businesses"
@@ -92,27 +141,45 @@ export default function SalesPage() {
             />
 
             <div className="text-center mt-8 max-w-3xl mx-auto px-4">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gradient bg-gradient-to-r from-[#e8a32d] to-green-500 bg-clip-text text-transparent mb-4 leading-snug">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#e8a32d] mb-4 leading-snug">
                 Book a Free 15 minutes <br /> No-obligation Call to Fix Your Sales.
               </h3>
             </div>
 
             <div className="mt-10">
-              <CTAButton
-                text="Lock-in my Spot Now!"
-                onClick={openModal}
-              />
+              <CTAButton text="Lock-in my Spot Now!" onClick={openModal} />
+            </div>
+
+            {/* Animated Bullet Points */}
+            <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span>No Sales Pitch</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                  style={{ animationDelay: '0.5s' }}
+                ></div>
+                <span>100% Free</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                  style={{ animationDelay: '1s' }}
+                ></div>
+                <span>15 Minutes</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits & Testimonial Section */}
+      {/* Benefits Section */}
       <section className="relative z-10 py-16 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="backdrop-blur-xl bg-white/5 border border-gradient-to-r from-[#e8a32d]/20 via-green-500/10 to-[#e8a32d]/20 rounded-3xl p-8 sm:p-12 shadow-2xl">
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl">
 
-            {/* Benefits */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-12">
               What You’ll Get On This 15 Minutes Call
             </h2>
@@ -125,53 +192,19 @@ export default function SalesPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="bg-white/5 border border-gradient-to-r from-[#e8a32d]/20 via-green-500/10 to-[#e8a32d]/20 rounded-2xl p-6 hover:scale-105 hover:shadow-lg transition-transform duration-300"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:scale-105 hover:shadow-lg transition-transform duration-300"
                 >
                   <div className="text-4xl mb-4">{item.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {item.title}
-                  </h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
                   <p className="text-gray-400 text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>
 
-            {/* ==============================
-                TESTIMONIAL COLUMN (Optimized)
-            ============================== */}
-            <section className="w-full py-16 px-4 bg-black/40 border border-gradient-to-r from-[#e8a32d]/30 via-green-500/20 to-[#e8a32d]/30 rounded-3xl mt-16 backdrop-blur-sm">
-              <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10">
-                Feedback from people who took me up on my advice
-              </h2>
-
-              <div className="max-w-4xl mx-auto space-y-8">
-                {testimonialImages.slice(0, visibleCount).map((img, index) => (
-                  <div
-                    key={index}
-                    className="bg-black/70 border border-gradient-to-r from-[#e8a32d]/50 via-green-500/30 to-[#e8a32d]/50 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
-                  >
-                    <img
-                      src={optimizeImage(img, getImageWidth())}
-                      alt={`Testimonial ${index + 1}`}
-                      className="w-full h-auto object-contain"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {visibleCount < testimonialImages.length && (
-                <div className="flex justify-center mt-10">
-                  <button
-                    onClick={() => setVisibleCount((v) => v + 1)} // increment by 1 for smoother memory
-                    className="px-6 py-3 bg-gradient-to-r from-[#e8a32d] to-green-500 text-black rounded-full font-medium shadow-lg hover:scale-105 transition-transform duration-300"
-                  >
-                    View More Proof
-                  </button>
-                </div>
-              )}
-            </section>
+            {/* =====================
+                TESTIMONIAL SECTION
+            ===================== */}
+            <TestimonialColumn />
 
             {/* About Section */}
             <AboutSection />
@@ -181,10 +214,7 @@ export default function SalesPage() {
 
             {/* Bottom CTA Button */}
             <div className="mt-10">
-              <CTAButton
-                text="Book Your Free Session"
-                onClick={openModal}
-              />
+              <CTAButton text="Book Your Free Session" onClick={openModal} />
             </div>
           </div>
         </div>
@@ -194,7 +224,6 @@ export default function SalesPage() {
       <PopupModal isOpen={isModalOpen} onClose={closeModal}>
         <CTAForm standalone={false} />
       </PopupModal>
-
     </main>
   );
 }
