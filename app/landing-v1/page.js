@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HeadlineSection from "@/components/HeadlineSection";
 import AboutSection from "@/components/AboutSection";
 import NumberCounter from "@/components/NumberCounter"; 
@@ -9,7 +9,7 @@ import PopupModal from "@/components/PopupModal";
 import CTAForm from "@/components/CTAForm";
 
 /* =========================
-   TESTIMONIAL IMAGES (optimized)
+   TESTIMONIAL IMAGES
 ========================= */
 const testimonialImages = [
   "fb_ad_success2_testimonial_kyuyad.jpg",
@@ -21,30 +21,40 @@ const testimonialImages = [
 
 const cloudinaryBase = "https://res.cloudinary.com/dojweqe65/image/upload";
 
+// Function to dynamically serve smaller images for mobile
 function optimizeImage(img, width = 900) {
-  return `${cloudinaryBase}/f_auto,q_75,w_${width}/v1768160617/${img}`;
+  return `${cloudinaryBase}/f_auto,q_50,w_${width}/v1768160617/${img}`;
 }
 
 export default function SalesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(2);
+  const [windowWidth, setWindowWidth] = useState(1200);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  // Track window width for responsive image optimization
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Calculate optimal width
+  const getImageWidth = () => {
+    if (windowWidth < 640) return 600; // mobile
+    if (windowWidth < 1024) return 900; // tablet
+    return 1200; // desktop
+  };
+
   return (
     <main className="relative bg-black min-h-screen overflow-x-hidden font-sans">
-
-      {/* Background grid */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(232,163,45,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(232,163,45,0.01)_1px,transparent_1px)] bg-[size:50px_50px]" />
-      </div>
 
       {/* Top Section */}
       <section className="relative z-10 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-
-          {/* Hero Image */}
           <div className="flex justify-center">
             <img
               src="https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_80,w_1000/v1768157371/BOOK_a_15_Minutes_7_aygkbf.png"
@@ -87,37 +97,22 @@ export default function SalesPage() {
               </h3>
             </div>
 
-            {/* Top CTA Button */}
             <div className="mt-10">
               <CTAButton
                 text="Lock-in my Spot Now!"
                 onClick={openModal}
               />
             </div>
-
-            <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span>No Sales Pitch</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <span>100% Free</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                <span>15 Minutes</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Benefits & Testimonial Section */}
       <section className="relative z-10 py-16 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <div className="backdrop-blur-xl bg-white/5 border border-gradient-to-r from-[#e8a32d]/20 via-green-500/10 to-[#e8a32d]/20 rounded-3xl p-8 sm:p-12 shadow-2xl">
 
+            {/* Benefits */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-12">
               What You’ll Get On This 15 Minutes Call
             </h2>
@@ -142,7 +137,7 @@ export default function SalesPage() {
             </div>
 
             {/* ==============================
-                TESTIMONIAL COLUMN (Web3 Style)
+                TESTIMONIAL COLUMN (Optimized)
             ============================== */}
             <section className="w-full py-16 px-4 bg-black/40 border border-gradient-to-r from-[#e8a32d]/30 via-green-500/20 to-[#e8a32d]/30 rounded-3xl mt-16 backdrop-blur-sm">
               <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10">
@@ -156,7 +151,7 @@ export default function SalesPage() {
                     className="bg-black/70 border border-gradient-to-r from-[#e8a32d]/50 via-green-500/30 to-[#e8a32d]/50 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
                   >
                     <img
-                      src={optimizeImage(img)}
+                      src={optimizeImage(img, getImageWidth())}
                       alt={`Testimonial ${index + 1}`}
                       className="w-full h-auto object-contain"
                       loading="lazy"
@@ -169,7 +164,7 @@ export default function SalesPage() {
               {visibleCount < testimonialImages.length && (
                 <div className="flex justify-center mt-10">
                   <button
-                    onClick={() => setVisibleCount((v) => v + 2)}
+                    onClick={() => setVisibleCount((v) => v + 1)} // increment by 1 for smoother memory
                     className="px-6 py-3 bg-gradient-to-r from-[#e8a32d] to-green-500 text-black rounded-full font-medium shadow-lg hover:scale-105 transition-transform duration-300"
                   >
                     View More Proof
