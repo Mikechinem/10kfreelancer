@@ -1,42 +1,43 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const TestimonialColumn = ({ images }) => {
+  const [visibleCount, setVisibleCount] = useState(2);
+
   return (
-    <section
-      id="testimonials"
-      className="w-full py-16 px-4 md:px-6 bg-black border-4 border-[#1a1402] rounded-2xl"
-    >
-      {/* Header */}
-      <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-semibold text-center max-w-3xl mx-auto mb-12">
-        What people were saying when I was sharing my system for free
+    <section className="w-full py-16 px-4 bg-black border-4 border-[#1a1402] rounded-2xl">
+      <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10">
+        Feedback from people who took me up on my advice
       </h2>
 
-      {/* Testimonial Grid */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        {images.map((image, index) => (
+      <div className="max-w-4xl mx-auto space-y-8">
+        {images.slice(0, visibleCount).map((image, index) => (
           <div
             key={index}
-            className="relative bg-black rounded-xl border border-white/10 shadow-lg overflow-hidden"
+            className="bg-black border border-white/10 rounded-xl overflow-hidden"
           >
-            {/* Image Wrapper */}
-            <div className="relative w-full">
-              <img
-                src={image}
-                alt={`Testimonial screenshot ${index + 1}`}
-                className="w-full h-auto object-contain bg-black"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Optional Caption (future-proof) */}
-            <div className="px-4 py-3 text-xs text-gray-400 text-center border-t border-white/10">
-              Screenshot from real feedback
-            </div>
+            <img
+              src={image}
+              alt={`Testimonial ${index + 1}`}
+              className="w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         ))}
       </div>
+
+      {visibleCount < images.length && (
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={() => setVisibleCount((v) => v + 2)}
+            className="px-6 py-3 bg-[#e8a32d] text-black rounded-full font-medium"
+          >
+            View More Proof
+          </button>
+        </div>
+      )}
     </section>
   );
 };
