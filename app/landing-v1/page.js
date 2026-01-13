@@ -70,7 +70,7 @@ export default function SalesPage() {
             <HeadlineSection
               preHeadline="For Coaches and Education based businesses"
               headline="Ready to Stop Chasing Clients on Social Media and Still Sell out Fast?"
-              subtext="I help coaches & course creators get high-quality leads using landing pages and Facebook ads so you can focus on training, not marketing."
+              subtext="I help coaches & course creators get high-quality leads using landing pages and social media ads so you can focus on training, not marketing."
             />
 
             <h3 className="mt-8 text-3xl sm:text-4xl md:text-5xl font-semibold bg-gradient-to-r from-[#e8a32d] to-green-500 bg-clip-text text-transparent leading-snug">

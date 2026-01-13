@@ -3,11 +3,13 @@
 import { useState } from "react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { motion } from "framer-motion";
+
 
 export default function CTAForm({
-  headline = "Ready to stop living from launch to launch?",
+  headline = "Great! Let's get leads that don't want free stuffs",
   subheadline = "Drop your details and let's talk.",
-  psText = "P.S. You might feel too confident after our talk.",
+  psText = "P.S. Most people leave this call realizing they’ve been working on the wrong thing. That clarity tends to change how they move.",
   buttonText = "Yes! Let's Fix This",
   standalone = true, // Set to false when used in popup
 }) {
@@ -101,13 +103,39 @@ export default function CTAForm({
           className="w-full h-[56px] px-4 rounded-xl bg-black/30 text-white placeholder-gray-400 border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-[#e8a32d] focus:border-[#e8a32d] transition"
         />
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="mt-2 h-[56px] rounded-xl bg-gradient-to-r from-[#e8a32d] to-yellow-400 text-black font-semibold text-lg hover:scale-105 transition-transform shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {loading ? "Submitting..." : buttonText}
-        </button>
+        <motion.button
+  type="submit"
+  disabled={loading}
+  whileHover={!loading ? { scale: 1.05 } : {}}
+  whileTap={!loading ? { scale: 0.95 } : {}}
+  className={`relative w-full px-10 py-5 font-bold text-lg rounded-2xl overflow-hidden
+    bg-black text-white shadow-xl border border-white/10
+    transition-opacity
+    ${loading ? "opacity-60 cursor-not-allowed" : ""}`}
+>
+  {/* Animated neon glow */}
+  <span
+    aria-hidden
+    className="absolute inset-0 rounded-2xl
+      bg-gradient-to-r from-green-400 via-green-200 to-green-400
+      opacity-30 blur-xl animate-pulse"
+  />
+
+  {/* Moving shine effect (disabled while loading) */}
+  {!loading && (
+    <motion.span
+      aria-hidden
+      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+      initial={{ x: "-200%" }}
+      whileHover={{ x: "200%" }}
+      transition={{ duration: 1 }}
+    />
+  )}
+      {/* Button text */}
+     <span className="relative z-10">
+     {loading ? "Submitting..." : buttonText}
+    </span>
+    </motion.button>
       </form>
     </>
   );

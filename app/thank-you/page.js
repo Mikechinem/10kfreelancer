@@ -10,11 +10,13 @@ export default function ThankYouPage() {
           You're In 🎉
         </h1>
 
-        <p className="text-gray-300 text-lg md:text-xl mb-8">
-          Thanks for reaching out.< br/> 
-          We can knock it off now if you want< br/>
-          Message me on Whatsapp if this works for you.
-        </p>
+       <p className="text-gray-300 text-base md:text-lg mb-4 leading-relaxed">
+       Thanks for reaching out.<br />
+       <strong className="text-white">Quick one:</strong><br />
+        We usually work with <strong className="text-green-400">2-3 clients at a time</strong>.<br />
+        So we might have <strong className="text-red-400">no slot left</strong> as we speak.<br />
+       <strong className="text-white">Message me on WhatsApp now</strong> to confirm availability.
+       </p>
 
         {/* WhatsApp Button */}
         <Link
