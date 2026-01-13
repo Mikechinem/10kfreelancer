@@ -17,7 +17,6 @@ const testimonialImages = [
   "fb_ad_success_5_zvxqw2.jpg",
   "fb_ad_success7_f5xsnc.jpg",
   "fb_ad_success3_zg6p7p.jpg",
-  // duplicate removed
 ];
 
 const cloudinaryBase = "https://res.cloudinary.com/dojweqe65/image/upload";
@@ -34,7 +33,7 @@ export default function SalesPage() {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <main className="relative bg-black min-h-screen overflow-x-hidden">
+    <main className="relative bg-black min-h-screen overflow-x-hidden font-sans">
 
       {/* Background grid */}
       <div className="absolute inset-0 pointer-events-none">
@@ -57,7 +56,7 @@ export default function SalesPage() {
           {/* Video */}
           <div className="mt-10">
             <div className="max-w-4xl mx-auto">
-              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden border border-gradient-to-r from-[#e8a32d]/30 via-green-500/20 to-[#e8a32d]/30 shadow-2xl backdrop-blur-md">
                 <div className="relative aspect-video bg-black">
                   <video
                     controls
@@ -83,7 +82,7 @@ export default function SalesPage() {
             />
 
             <div className="text-center mt-8 max-w-3xl mx-auto px-4">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#e8a32d] mb-4 leading-snug">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gradient bg-gradient-to-r from-[#e8a32d] to-green-500 bg-clip-text text-transparent mb-4 leading-snug">
                 Book a Free 15 minutes <br /> No-obligation Call to Fix Your Sales.
               </h3>
             </div>
@@ -117,7 +116,7 @@ export default function SalesPage() {
       {/* Benefits Section */}
       <section className="relative z-10 py-16 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl">
+          <div className="backdrop-blur-xl bg-white/5 border border-gradient-to-r from-[#e8a32d]/20 via-green-500/10 to-[#e8a32d]/20 rounded-3xl p-8 sm:p-12 shadow-2xl">
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-12">
               What You’ll Get On This 15 Minutes Call
@@ -131,7 +130,7 @@ export default function SalesPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition"
+                  className="bg-white/5 border border-gradient-to-r from-[#e8a32d]/20 via-green-500/10 to-[#e8a32d]/20 rounded-2xl p-6 hover:scale-105 hover:shadow-lg transition-transform duration-300"
                 >
                   <div className="text-4xl mb-4">{item.icon}</div>
                   <h3 className="text-xl font-semibold text-white mb-2">
@@ -143,9 +142,9 @@ export default function SalesPage() {
             </div>
 
             {/* ==============================
-                TESTIMONIAL COLUMN (optimized)
+                TESTIMONIAL COLUMN (Web3 Style)
             ============================== */}
-            <section className="w-full py-16 px-4 bg-black border-4 border-[#1a1402] rounded-2xl mt-16">
+            <section className="w-full py-16 px-4 bg-black/40 border border-gradient-to-r from-[#e8a32d]/30 via-green-500/20 to-[#e8a32d]/30 rounded-3xl mt-16 backdrop-blur-sm">
               <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10">
                 Feedback from people who took me up on my advice
               </h2>
@@ -154,7 +153,7 @@ export default function SalesPage() {
                 {testimonialImages.slice(0, visibleCount).map((img, index) => (
                   <div
                     key={index}
-                    className="bg-black border border-white/10 rounded-xl overflow-hidden"
+                    className="bg-black/70 border border-gradient-to-r from-[#e8a32d]/50 via-green-500/30 to-[#e8a32d]/50 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
                   >
                     <img
                       src={optimizeImage(img)}
@@ -171,7 +170,7 @@ export default function SalesPage() {
                 <div className="flex justify-center mt-10">
                   <button
                     onClick={() => setVisibleCount((v) => v + 2)}
-                    className="px-6 py-3 bg-[#e8a32d] text-black rounded-full font-medium"
+                    className="px-6 py-3 bg-gradient-to-r from-[#e8a32d] to-green-500 text-black rounded-full font-medium shadow-lg hover:scale-105 transition-transform duration-300"
                   >
                     View More Proof
                   </button>
