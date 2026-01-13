@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import HeadlineSection from "@/components/HeadlineSection";
@@ -68,13 +68,13 @@ export default function SalesPage() {
           {/* Headline */}
           <div className="text-center mt-14">
               <HeadlineSection
-        preHeadline="For Coaches and Educatonal Business Owners"
+        preHeadline="For Coaches and Education based businesses"
         headline="Ready to Stop Chasing Clients on Social Media and Sell More Fast?"
         subtext="I help coaches & course creators get high-quality leads using landing pages and Facebook ads so you can focus on training, not marketing."
       />
       <div className="text-center mt-8 max-w-3xl mx-auto px-4">
       {/* Sub-headline */}
-      <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-yellow-600 mb-4 leading-snug">
+      <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#e8a32d] mb-4 leading-snug">
       Book a Free 15 minutes <br /> No-obligation Call to Fix Your Sales.
       </h3>
 
@@ -88,10 +88,19 @@ export default function SalesPage() {
             </div>
 
             <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
-              <span>✔ No Sales Pitch</span>
-              <span>✔ 100% Free</span>
-              <span>✔ 15 Minutes</span>
-            </div>
+  <div className="flex items-center gap-2">
+    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+    <span>No Sales Pitch</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+    <span>100% Free</span>
+  </div>
+  <div className="flex items-center gap-2">
+    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+    <span>15 Minutes</span>
+   </div>
+    </div>
           </div>
         </div>
       </section>

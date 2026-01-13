@@ -10,13 +10,13 @@ export default function HeadlineSection({
       <div className="max-w-7xl mx-auto grid grid-cols-1 gap-8 items-center">
         <div className="flex flex-col justify-center space-y-6">
           {preHeadline && (
-            <div className="text-[#b58e10] text-sm font-semibold uppercase tracking-wider">
+            <div className="text-[#ffff] text-sm font-semibold uppercase tracking-wider">
               {preHeadline}
             </div>
           )}
 
           {headline && (
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#e8a32d] leading-tight">
               {headline}
             </h2>
           )}
