@@ -1,25 +1,34 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import HeadlineSection from "@/components/HeadlineSection";
-import AnimatedScrollGallery from "@/components/AnimatedScrollGallery";
 import AboutSection from "@/components/AboutSection";
 import NumberCounter from "@/components/NumberCounter"; 
 import CTAButton from "@/components/CTAButton";
 import PopupModal from "@/components/PopupModal";
 import CTAForm from "@/components/CTAForm";
 
-const galleryImages = [
-  "https://res.cloudinary.com/dojweqe65/image/upload/v1765580057/fb_ad_success2_testimonial_kyuyad.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/v1765580058/fb_ad_sucess8_jsn58h.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/v1765580057/fb_ad_success_5_zvxqw2.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/v1765580058/fb_ad_success7_f5xsnc.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/v1765580058/fb_ad_success3_zg6p7p.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/v1765580058/fb_ad_sucess8_jsn58h.jpg",
+/* =========================
+   TESTIMONIAL IMAGES (optimized)
+========================= */
+const testimonialImages = [
+  "fb_ad_success2_testimonial_kyuyad.jpg",
+  "fb_ad_sucess8_jsn58h.jpg",
+  "fb_ad_success_5_zvxqw2.jpg",
+  "fb_ad_success7_f5xsnc.jpg",
+  "fb_ad_success3_zg6p7p.jpg",
+  // duplicate removed
 ];
+
+const cloudinaryBase = "https://res.cloudinary.com/dojweqe65/image/upload";
+
+function optimizeImage(img, width = 900) {
+  return `${cloudinaryBase}/f_auto,q_75,w_${width}/v1768160617/${img}`;
+}
 
 export default function SalesPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(2);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -36,10 +45,10 @@ export default function SalesPage() {
       <section className="relative z-10 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
 
-          {/* Image */}
+          {/* Hero Image */}
           <div className="flex justify-center">
             <img
-              src="https://res.cloudinary.com/dojweqe65/image/upload/v1768157371/BOOK_a_15_Minutes_7_aygkbf.png"
+              src="https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_80,w_1000/v1768157371/BOOK_a_15_Minutes_7_aygkbf.png"
               alt="Sales Expert"
               className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain"
             />
@@ -53,7 +62,7 @@ export default function SalesPage() {
                   <video
                     controls
                     className="w-full h-full"
-                    poster="https://res.cloudinary.com/dojweqe65/image/upload/v1768160617/340_Leads_1_vluy2w.png"
+                    poster="https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_70,w_1200/v1768160617/340_Leads_1_vluy2w.png"
                   >
                     <source
                       src="https://res.cloudinary.com/dojweqe65/video/upload/v1768157515/real_video_for_loom.2026_inpnog.mp4"
@@ -67,18 +76,18 @@ export default function SalesPage() {
 
           {/* Headline */}
           <div className="text-center mt-14">
-              <HeadlineSection
-        preHeadline="For Coaches and Education based businesses"
-        headline="Ready to Stop Chasing Clients on Social Media and Sell More Fast?"
-        subtext="I help coaches & course creators get high-quality leads using landing pages and Facebook ads so you can focus on training, not marketing."
-      />
-      <div className="text-center mt-8 max-w-3xl mx-auto px-4">
-      {/* Sub-headline */}
-      <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#e8a32d] mb-4 leading-snug">
-      Book a Free 15 minutes <br /> No-obligation Call to Fix Your Sales.
-      </h3>
+            <HeadlineSection
+              preHeadline="For Coaches and Education based businesses"
+              headline="Ready to Stop Chasing Clients on Social Media and Sell More Fast?"
+              subtext="I help coaches & course creators get high-quality leads using landing pages and Facebook ads so you can focus on training, not marketing."
+            />
 
-      </div>
+            <div className="text-center mt-8 max-w-3xl mx-auto px-4">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#e8a32d] mb-4 leading-snug">
+                Book a Free 15 minutes <br /> No-obligation Call to Fix Your Sales.
+              </h3>
+            </div>
+
             {/* Top CTA Button */}
             <div className="mt-10">
               <CTAButton
@@ -88,19 +97,19 @@ export default function SalesPage() {
             </div>
 
             <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
-  <div className="flex items-center gap-2">
-    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-    <span>No Sales Pitch</span>
-  </div>
-  <div className="flex items-center gap-2">
-    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-    <span>100% Free</span>
-  </div>
-  <div className="flex items-center gap-2">
-    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-    <span>15 Minutes</span>
-   </div>
-    </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span>No Sales Pitch</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <span>100% Free</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <span>15 Minutes</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -133,10 +142,42 @@ export default function SalesPage() {
               ))}
             </div>
 
-            {/* Animated Gallery */}
-            <div className="mt-16">
-              <AnimatedScrollGallery images={galleryImages} />
-            </div>
+            {/* ==============================
+                TESTIMONIAL COLUMN (optimized)
+            ============================== */}
+            <section className="w-full py-16 px-4 bg-black border-4 border-[#1a1402] rounded-2xl mt-16">
+              <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10">
+                Feedback from people who took me up on my advice
+              </h2>
+
+              <div className="max-w-4xl mx-auto space-y-8">
+                {testimonialImages.slice(0, visibleCount).map((img, index) => (
+                  <div
+                    key={index}
+                    className="bg-black border border-white/10 rounded-xl overflow-hidden"
+                  >
+                    <img
+                      src={optimizeImage(img)}
+                      alt={`Testimonial ${index + 1}`}
+                      className="w-full h-auto object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {visibleCount < testimonialImages.length && (
+                <div className="flex justify-center mt-10">
+                  <button
+                    onClick={() => setVisibleCount((v) => v + 2)}
+                    className="px-6 py-3 bg-[#e8a32d] text-black rounded-full font-medium"
+                  >
+                    View More Proof
+                  </button>
+                </div>
+              )}
+            </section>
 
             {/* About Section */}
             <AboutSection />
