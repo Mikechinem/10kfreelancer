@@ -69,7 +69,7 @@ export default function SalesPage() {
           <div className="text-center mt-14">
             <HeadlineSection
               preHeadline="For Coaches and Education based businesses"
-              headline="Ready to Stop Chasing Clients on Social Media and Sell More Fast?"
+              headline="Ready to Stop Chasing Clients on Social Media and Still Sell out Fast?"
               subtext="I help coaches & course creators get high-quality leads using landing pages and Facebook ads so you can focus on training, not marketing."
             />
 

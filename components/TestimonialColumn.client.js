@@ -3,11 +3,10 @@
 import { useEffect, useState } from "react";
 
 const images = [
-  "fb_ad_success2_testimonial_kyuyad.jpg",
-  "fb_ad_sucess8_jsn58h.jpg",
-  "fb_ad_success_5_zvxqw2.jpg",
-  "fb_ad_success7_f5xsnc.jpg",
-  "fb_ad_success3_zg6p7p.jpg",
+  "fb-ad-success4x_rixnha.jpg",
+  "fb-ad-success9x_h8ulyz.jpg",
+  "fb-ad-success5x_rawdq0.jpg",
+  "fb-ad-success7x_fj7lxm.jpg",
 ];
 
 const base = "https://res.cloudinary.com/dojweqe65/image/upload";
