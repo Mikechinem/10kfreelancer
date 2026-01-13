@@ -12,11 +12,11 @@ import CTAForm from "@/components/CTAForm";
 // TESTIMONIAL IMAGES (Optimized)
 // =========================
 const testimonialImages = [
-  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580057/fb_ad_success2_testimonial_kyuyad.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_sucess8_jsn58h.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580057/fb_ad_success_5_zvxqw2.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_success7_f5xsnc.jpg",
-  "https://res.cloudinary.com/dojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_success3_zg6p7p.jpg",
+  "https://res.cloudinary.com/ojweqe65/image/upload/f_auto,q_50,w_900/v1765580057/fb_ad_success2_testimonial_kyuyad.jpg",
+  "https://res.cloudinary.com/ojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_sucess8_jsn58h.jpg",
+  "https://res.cloudinary.com/ojweqe65/image/upload/f_auto,q_50,w_900/v1765580057/fb_ad_success_5_zvxqw2.jpg",
+  "https://res.cloudinary.com/ojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_success7_f5xsnc.jpg",
+  "https://res.cloudinary.com/ojweqe65/image/upload/f_auto,q_50,w_900/v1765580058/fb_ad_success3_zg6p7p.jpg",
 ];
 
 // =========================
