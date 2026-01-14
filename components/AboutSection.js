@@ -5,7 +5,7 @@ export default function AboutSection({
   imageAlt = "Michael Ehumadu",
   name = "Michael Ehumadu",
   story = null, // Pass custom story if needed
-  psText = "PS. I only can handle 2-3 clients account at a time, I suggest you act now."
+  psText = "PS. I only can handle 2-3 clients account at a time, message me to confirm availability."
 }) {
   const defaultStory = (
     <>
