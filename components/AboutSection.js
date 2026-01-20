@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import SectionBackground2 from "@/components/SectionBackground2";
 export default function AboutSection({
   imageSrc = "/michael.jpg",
   imageAlt = "Michael Ehumadu",
@@ -51,7 +51,9 @@ export default function AboutSection({
   );
 
   return (
-    <section className="w-full max-w-5xl mx-auto my-12 flex flex-col md:flex-row items-center bg-zinc-900 rounded-2xl p-6 shadow-lg">
+    
+    <SectionBackground2>
+      <section className="w-full max-w-5xl mx-auto my-12 flex flex-col md:flex-row items-center bg-zinc-900 rounded-2xl p-6 shadow-lg">
       <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6">
         <Image
           src={imageSrc}
@@ -78,5 +80,6 @@ export default function AboutSection({
         )}
       </div>
     </section>
+    </SectionBackground2>
   );
 }

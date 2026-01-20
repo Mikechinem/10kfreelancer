@@ -1,5 +1,5 @@
 'use client';
-
+import SectionBackground2 from "@/components/SectionBackground2";
 import { useEffect, useState } from "react";
 
 const images = [
@@ -23,21 +23,21 @@ export default function TestimonialColumn() {
   }
 
   return (
-    <section className="py-16 px-4 bg-black/40 rounded-3xl backdrop-blur-sm">
-      <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10">
+    <SectionBackground2><section className="py-16 px-4 sm:px-6 md:px-8 lg:px-16">
+      <h2 className="text-white text-2xl sm:text-3xl font-semibold text-center mb-10 max-w-3xl mx-auto">
         Feedback from people who took me up on my advice
       </h2>
 
-      <div className="max-w-4xl mx-auto space-y-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {images.map((img, i) => (
           <div
             key={i}
-            className="bg-black/70 border border-white/20 rounded-xl overflow-hidden shadow-lg"
+            className="bg-black/70 border border-white/20 rounded-xl overflow-hidden shadow-lg flex justify-center items-center"
           >
             <img
               src={`${base}/f_auto,q_50,w_1200/${img}`}
               alt={`Testimonial ${i + 1}`}
-              className="w-full h-auto object-contain"
+              className="w-full h-full object-contain"
               loading="lazy"
               decoding="async"
             />
@@ -45,5 +45,6 @@ export default function TestimonialColumn() {
         ))}
       </div>
     </section>
+    </SectionBackground2>
   );
 }

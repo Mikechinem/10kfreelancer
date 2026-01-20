@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 
 export default function CTAForm({
-  headline = "Great! Let's get leads that don't want free stuffs",
+  headline = "Great! Let's get you leads that don't want free stuffs",
   subheadline = "Drop your details and let's talk.",
   psText = "P.S. Most people leave this call realizing they’ve been working on the wrong thing. That clarity tends to change how they move.",
   buttonText = "Yes! Let's Fix This",
