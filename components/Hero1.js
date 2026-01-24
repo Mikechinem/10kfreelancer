@@ -14,7 +14,7 @@ export default function Hero1({ onCTAClick }) {
           {/* Left: Headline & Text */}
           <div className="flex-1 text-center lg:text-left max-w-3xl space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.06] text-white">
-              Ready to Stop{" "}
+              Tired Of{" "}
               <span className="text-[#e8a32d]">Starting Sales From Scratch</span>{" "}
               <span className="text-gray-300">Every Time</span> You Have a Program to Sell?
             </h1>
